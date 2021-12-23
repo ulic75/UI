@@ -214,24 +214,22 @@ views:
   - title: Media
   - title: Automations
     cards:
-      - type: "custom:button-card"
-        template: card_graph
-        variables:
-          ulm_card_graph_color: "var(--google-yellow)"
-          ulm_card_graph_name: Living Room Temperature
-          ulm_card_graph_entity: sensor.downstairs_temperature
-      - type: "custom:button-card"
-        template: card_graph
-        variables:
-          ulm_card_graph_color: "var(--google-yellow)"
-          ulm_card_graph_name: Living Room Humidity
-          ulm_card_graph_entity: sensor.downstairs_humidity
-      - type: horizontal-stack
+      - type: vertical-stack
         cards:
-          - type: custom:button-card
-            template: edge
-          - type: custom:button-card
-            template: title
-            name: UI-Lovelace-Minimalist second page
-          - type: custom:button-card
-            template: edge
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: card_input_boolean
+                entity: input_boolean.dusk_automation
+                name: Dusk
+              - type: custom:button-card
+                template: card_input_boolean
+                entity: input_boolean.bedtime_automation
+                name: Bedtime
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: card_input_boolean
+                entity: input_boolean.poker_night
+                name: Poker Night
+              - type: custom:gap-card
