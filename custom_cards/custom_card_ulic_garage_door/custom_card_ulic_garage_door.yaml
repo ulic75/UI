@@ -1,0 +1,39 @@
+card_ulic_garage_door:
+  template:
+    - icon_info_bg
+    - ulm_language_variables
+  variables:
+    icon_size: 100px
+  tap_action:
+    action: toggle
+  state:
+    - value: "closed"
+      styles:
+        icon:
+          - color: var(--google-green)
+    - value: "open"
+      styles:
+        icon:
+          - color: var(--google-red)
+  styles:
+    card:
+      - height: 100%
+    icon:
+      - color: "rgba(var(--color-theme),1)"
+      - width: "[[[return variables.icon_size]]]"
+      - height: "[[[return variables.icon_size]]]"
+    name:
+      - align-self: end
+      - justify-self: center
+      - font-weight: bold
+      - font-size: 14px
+      - margin-left: 0
+      - filter: opacity(100%)
+    img_cell:
+      - width: "[[[return variables.icon_size]]]"
+      - height: "[[[return variables.icon_size]]]"
+    grid:
+      - align-content: center
+      - grid-template-areas: '"i" "n"'
+      - grid-template-columns: auto
+      - grid-template-rows: min-content min-content

@@ -1,0 +1,164 @@
+card_ulic_wled:
+  template:
+    - card_light_slider_color
+    - ulm_language_variables
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'item3' 'item2'"
+  custom_fields:
+    # item1:
+    #   card:
+    #     template:
+    #       - "icon_info_wled"
+    item3:
+      card:
+        type: entities
+        entities:
+          - entity: select.wled_preset_1
+            card_mod:
+              style:
+                hui-generic-entity-row$: |
+                  state-badge {
+                    display: none;
+                  }
+                .: |
+                  hui-generic-entity-row > ha-paper-dropdown-menu {
+                    margin-left: 0;
+                  }
+        card_mod:
+          style:
+            hui-entities-card$: |
+              ha-card {
+                background: transparent;
+                box-shadow: none;
+              }
+            .: |
+              #states {
+                padding: 0
+              }
+
+### internal templates
+icon_info_wled:
+  template: icon_info_light
+  custom_fields:
+    item2:
+      card:
+        label: >-
+          [[[
+            if (entity.state == 'unavailable') return variables.ulm_unavailable;
+            if (entity.state == 'off') return variables.ulm_off;
+            if (entity.state == 'on') {
+              if (entity.attributes.brightness != null){
+                var bri = Math.round(entity.attributes.brightness / 2.55);
+                return `${(bri ? bri : '0')} % - ${entity.attributes.effect}`;
+              } else {
+                return variables.ulm_on
+              }
+            }
+            return '';
+          ]]]
+
+  # template:
+  #   - ulm_language_variables
+  #   - yellow
+  # variables:
+  #   ulm_card_light_slider_collapse_name: "[[[ return entity.attributes.friendly_name ]]]"
+  # show_icon: false
+  # show_name: false
+  # show_label: false
+  # state:
+  #   - operator: template
+  #     value: "[[[ return entity.state == 'on' ]]]"
+  # styles:
+  #   grid:
+  #     - grid-template-areas: '"item1 item2" "item3 item3" "item4 itme4"'
+  #     - grid-template-columns: auto min-content
+  #     - grid-template-rows: min-content min-content
+  #   card:
+  #     - border-radius: var(--border-radius)
+  #     - box-shadow: var(--box-shadow)
+  #     - padding: 12px
+  # custom_fields:
+  #   item1:
+  #     card:
+  #       type: "custom:button-card"
+  #       template:
+  #         - icon_info
+  #         - yellow_slider
+  #       entity: "[[[ return entity.entity_id ]]]"
+  #       label: >-
+  #         [[[
+  #           if (entity.state !='unavailable'){
+  #             if (entity.state =='off'){
+  #               return variables.ulm_off;
+  #             } else if (entity.state == 'on'){
+  #               if (entity.attributes.brightness != null){
+  #                 var bri = Math.round(entity.attributes.brightness / 2.55);
+  #                 return (bri ? bri : '0') + '%';
+  #               } else {
+  #                 return variables.ulm_on
+  #               }
+  #             }
+  #           } else {
+  #             return variables.ulm_unavailable;
+  #           }
+  #         ]]]
+  #       name: "[[[ return variables.ulm_card_light_slider_collapse_name ]]]"
+  #       styles:
+  #         card:
+  #           - box-shadow: none
+  #           - border-radius: var(--border-radius) var(--border-radius) var(--border-radius) var(--border-radius)
+  #           - padding: 0px
+  #   # item2:
+  #   #   card:
+  #   #     type: custom:button-card
+  #   #     template:
+  #   #       - icon_info
+  #   #     entity: "[[[ return entity.entity_id ]]]"
+  #   #     tap-action:
+  #   #       action: more-info
+  #   item3:
+  #     card:
+  #       type: entities
+  #       entities:
+  #         - entity: select.wled_preset_1
+  #           icon: none
+  #           card_mod:
+  #             style:
+  #               hui-generic-entity-row$: |
+  #                 state-badge {
+  #                   display: none;
+  #                 }
+  #               .: |
+  #                 hui-generic-entity-row > ha-paper-dropdown-menu {
+  #                   margin-left: 0;
+  #                 }
+  #       card_mod:
+  #         style: |
+  #           :host {
+  #             background: none;
+  #           }
+  #           #states {
+  #             padding: 0
+  #           }
+  #   item4:
+  #     card:
+  #       type: "custom:my-slider"
+  #       entity: "[[[ return entity.entity_id ]]]"
+  #       radius: 14px
+  #       height: 42px
+  #       mainSliderColor: >-
+  #         [[[
+  #           if (entity.attributes.effect !== 'Solid') return "rgba(var(--color-yellow),1)"
+  #           return `rgba(${entity.attributes.rgb_color}, ${(entity.attributes.brightness / 255) + 0.2})`
+  #         ]]]
+  #       secondarySliderColor: >-
+  #         [[[
+  #           if (entity.attributes.effect !== 'Solid') return "rgba(var(--color-yellow),0.2)"
+  #           return `rgba(${entity.attributes.rgb_color}, 0.2)`
+  #         ]]]
+  #       mainSliderColorOff: rgba(var(--color-theme),0.05)
+  #       secondarySliderColorOff: rgba(var(--color-theme),0.05)
+  #       thumbHorizontalPadding: "0px"
+  #       thumbVerticalPadding: "0px"
+  #       thumbWidth: 0px
