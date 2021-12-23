@@ -6,10 +6,10 @@ card_ulic_wled:
     grid:
       - grid-template-areas: "'item1' 'item3' 'item2'"
   custom_fields:
-    # item1:
-    #   card:
-    #     template:
-    #       - "icon_info_wled"
+    item1:
+      card:
+        template:
+          - "icon_info_wled"
     item3:
       card:
         type: entities
