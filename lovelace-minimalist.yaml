@@ -214,6 +214,56 @@ views:
                         top: -6px;
                       }
   - title: Media
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: media-control
+            entity: media_player.roku
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    transition: border-radius 0s;
+                    border-radius: var(--border-radius);
+                  }
+          - type: media-control
+            entity: media_player.living_room_cc
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    transition: border-radius 0s;
+                    border-radius: var(--border-radius);
+                  }
+          - type: custom:button-card
+            name: Roku VPN
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: homeassistant/button/roku_vpn/click
+            entity: input_select.roku_vpn_state
+            icon: mdi:shield-lock-outline
+            show_state: true
+            styles:
+              state:
+                - text-transform: capitalize
+            state:
+              - value: running
+                color: "#4CAF50"
+              - value: stopped
+                color: "#F44336"
+              - value: starting
+                color: "#FBC02D"
+              - value: stopping
+                color: "#FBC02D"
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    transition: border-radius 0s;
+                    border-radius: var(--border-radius);
+                  }
   - title: Automations
     cards:
       - type: vertical-stack
