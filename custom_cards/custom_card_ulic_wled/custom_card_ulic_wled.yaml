@@ -27,12 +27,11 @@ card_ulic_wled:
                   }
         card_mod:
           style:
-            hui-entities-card$: |
+            .: |
               ha-card {
                 background: transparent;
                 box-shadow: none;
               }
-            .: |
               #states {
                 padding: 0
               }
