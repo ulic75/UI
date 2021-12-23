@@ -2,215 +2,217 @@ button_card_templates: !include_dir_merge_named minimalist-templates/
 views:
   - title: Home
     cards:
-      - type: horizontal-stack
+      - type: vertical-stack
         cards:
-          - type: picture-elements
-            style: |
-              ha-card {  
-                border-radius: 12px;
-                box-shadow: var(--box-shadow);
-                overflow: hidden;
-              }
-            image: /local/images/person/Jan.jpeg
-            elements:
-              - type: image
-                entity: person.jan
-                image: /local/images/person/Jan.jpeg
-                style:
-                  top: 50%
-                  left: 50%
-                  width: 100%
-                  height: 100%
-              - type: state-label
-                entity: person.jan
-                style:
-                  bottom: 0
-                  left: 0
-                  background: rgba(0, 0, 0, 0.3)
-                  width: 100%
-                  text-align: left
-                  font-family: var(--font-family)
-                  line-height: 15px
-                  transform: initial
-                  color: white
-              - type: state-label
-                entity: sensor.jan_pixel3_battery_level
-                style:
-                  top: 0
-                  left: 0
-                  transform: initial
-                  padding: 0px 28px
-                  line-height: 32px
-                  color: white
-              - type: icon
-                icon: mdi:cellphone
-                style:
-                  top: 0
-                  left: 0
-                  line-height: 32px
-                  padding: 7px 7px
-                  font-size: 11px
-                  transform: scale(0.8)
-                  color: white
-              - type: conditional
-                conditions:
-                  - state_not: home
-                    entity: person.jan
-                elements:
-                  - type: state-label
-                    entity: sensor.jan_to_home
-                    style:
-                      top: 0
-                      left: 0
-                      pointer-events: none
-                      transform: initial
-                      font-size: 12px
-                      font-family: var(--font-family)
-                      color: white
-                      line-height: 32px
-                      padding: 28px 28px
-                  - type: icon
-                    icon: mdi:home
-                    style:
-                      top: 0
-                      left: 0
-                      pointer-events: none
-                      transform: scale(0.8)
-                      color: white
-                      line-height: 32px
-                      padding: 35px 7px
-                      font-size: 11px
-                      font-family: var(--font-family)
-          - type: picture-elements
-            style: |
-              ha-card {  
-                border-radius: 12px;
-                box-shadow: var(--box-shadow);
-                overflow: hidden;
-              }
-            image: /local/images/person/Josh.jpeg
-            elements:
-              - type: image
-                entity: person.josh
-                image: /local/images/person/Josh.jpeg
-                style:
-                  top: 50%
-                  left: 50%
-                  width: 100%
-                  height: 100%
-              - type: state-label
-                entity: person.josh
-                style:
-                  bottom: 0
-                  left: 0
-                  background: rgba(0, 0, 0, 0.3)
-                  width: 100%
-                  text-align: right
-                  font-family: var(--font-family)
-                  line-height: 15px
-                  transform: initial
-                  color: white
-              - type: state-label
-                entity: sensor.pixel_6_battery_level
-                style:
-                  top: 0
-                  right: 0
-                  transform: initial
-                  padding: 0px 28px
-                  line-height: 32px
-                  color: white
-              - type: icon
-                icon: mdi:cellphone
-                style:
-                  top: 0
-                  right: 0
-                  line-height: 32px
-                  padding: 7px 7px
-                  font-size: 11px
-                  transform: scale(0.8)
-                  color: white
-              - type: conditional
-                conditions:
-                  - state_not: home
-                    entity: person.josh
-                elements:
-                  - type: state-label
-                    entity: sensor.josh_to_home
-                    style:
-                      top: 0
-                      right: 0
-                      pointer-events: none
-                      transform: initial
-                      font-size: 12px
-                      font-family: var(--font-family)
-                      color: white
-                      line-height: 32px
-                      padding: 28px 28px
-                  - type: icon
-                    icon: mdi:home
-                    style:
-                      top: 0
-                      right: 0
-                      pointer-events: none
-                      transform: scale(0.8)
-                      color: white
-                      line-height: 32px
-                      padding: 35px 7px
-                      font-size: 11px
-                      font-family: var(--font-family)
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_light_slider
-            entity: light.dining_room_shaded_lamp
-          - type: "custom:button-card"
-            template: card_light_slider
-            entity: light.living_room_floor_lamp
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_light
-            entity: switch.front_porch
-          - type: "custom:button-card"
-            template: card_light
-            entity: switch.back_porch
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.christmas_tree
-          - type: "custom:button-card"
-            template: card_ulic_wled
-            entity: light.wled_kitchen1
-      - type: horizontal-stack
-        cards:
-          - type: thermostat
-            entity: climate.downstairs
-            theme: custom
-            card_mod:
-              style:
-                round-slider$: |
-                  .bar {
-                    transition: none;
-                    --round-slider-bar-color: lightgray;
-                  }
-                .: |
+          - type: horizontal-stack
+            cards:
+              - type: picture-elements
+                style: |
                   ha-card {
-                    transition: border-radius 0s;
-                    border-radius: var(--border-radius);
+                    border-radius: 12px;
+                    box-shadow: var(--box-shadow);
+                    overflow: hidden;
                   }
-                  #modes {
-                    display: none;
+                image: /local/images/person/Jan.jpeg
+                elements:
+                  - type: image
+                    entity: person.jan
+                    image: /local/images/person/Jan.jpeg
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      height: 100%
+                  - type: state-label
+                    entity: person.jan
+                    style:
+                      bottom: 0
+                      left: 0
+                      background: rgba(0, 0, 0, 0.3)
+                      width: 100%
+                      text-align: left
+                      font-family: var(--font-family)
+                      line-height: 15px
+                      transform: initial
+                      color: white
+                  - type: state-label
+                    entity: sensor.jan_pixel3_battery_level
+                    style:
+                      top: 0
+                      left: 0
+                      transform: initial
+                      padding: 0px 28px
+                      line-height: 32px
+                      color: white
+                  - type: icon
+                    icon: mdi:cellphone
+                    style:
+                      top: 0
+                      left: 0
+                      line-height: 32px
+                      padding: 7px 7px
+                      font-size: 11px
+                      transform: scale(0.8)
+                      color: white
+                  - type: conditional
+                    conditions:
+                      - state_not: home
+                        entity: person.jan
+                    elements:
+                      - type: state-label
+                        entity: sensor.jan_to_home
+                        style:
+                          top: 0
+                          left: 0
+                          pointer-events: none
+                          transform: initial
+                          font-size: 12px
+                          font-family: var(--font-family)
+                          color: white
+                          line-height: 32px
+                          padding: 28px 28px
+                      - type: icon
+                        icon: mdi:home
+                        style:
+                          top: 0
+                          left: 0
+                          pointer-events: none
+                          transform: scale(0.8)
+                          color: white
+                          line-height: 32px
+                          padding: 35px 7px
+                          font-size: 11px
+                          font-family: var(--font-family)
+              - type: picture-elements
+                style: |
+                  ha-card {
+                    border-radius: 12px;
+                    box-shadow: var(--box-shadow);
+                    overflow: hidden;
                   }
-          - type: custom:button-card
-            template: card_ulic_garage_door
-            entity: cover.garage_door
-            card_mod:
-              style:
-                .: |
-                  ha-icon {
-                    top: -6px;
-                  }
+                image: /local/images/person/Josh.jpeg
+                elements:
+                  - type: image
+                    entity: person.josh
+                    image: /local/images/person/Josh.jpeg
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      height: 100%
+                  - type: state-label
+                    entity: person.josh
+                    style:
+                      bottom: 0
+                      left: 0
+                      background: rgba(0, 0, 0, 0.3)
+                      width: 100%
+                      text-align: right
+                      font-family: var(--font-family)
+                      line-height: 15px
+                      transform: initial
+                      color: white
+                  - type: state-label
+                    entity: sensor.pixel_6_battery_level
+                    style:
+                      top: 0
+                      right: 0
+                      transform: initial
+                      padding: 0px 28px
+                      line-height: 32px
+                      color: white
+                  - type: icon
+                    icon: mdi:cellphone
+                    style:
+                      top: 0
+                      right: 0
+                      line-height: 32px
+                      padding: 7px 7px
+                      font-size: 11px
+                      transform: scale(0.8)
+                      color: white
+                  - type: conditional
+                    conditions:
+                      - state_not: home
+                        entity: person.josh
+                    elements:
+                      - type: state-label
+                        entity: sensor.josh_to_home
+                        style:
+                          top: 0
+                          right: 0
+                          pointer-events: none
+                          transform: initial
+                          font-size: 12px
+                          font-family: var(--font-family)
+                          color: white
+                          line-height: 32px
+                          padding: 28px 28px
+                      - type: icon
+                        icon: mdi:home
+                        style:
+                          top: 0
+                          right: 0
+                          pointer-events: none
+                          transform: scale(0.8)
+                          color: white
+                          line-height: 32px
+                          padding: 35px 7px
+                          font-size: 11px
+                          font-family: var(--font-family)
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                template: card_light_slider
+                entity: light.dining_room_shaded_lamp
+              - type: "custom:button-card"
+                template: card_light_slider
+                entity: light.living_room_floor_lamp
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                template: card_light
+                entity: switch.front_porch
+              - type: "custom:button-card"
+                template: card_light
+                entity: switch.back_porch
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                template: card_light
+                entity: light.christmas_tree
+              - type: "custom:button-card"
+                template: card_ulic_wled
+                entity: light.wled_kitchen1
+          - type: horizontal-stack
+            cards:
+              - type: thermostat
+                entity: climate.downstairs
+                theme: custom
+                card_mod:
+                  style:
+                    round-slider$: |
+                      .bar {
+                        transition: none;
+                        --round-slider-bar-color: lightgray;
+                      }
+                    .: |
+                      ha-card {
+                        transition: border-radius 0s;
+                        border-radius: var(--border-radius);
+                      }
+                      #modes {
+                        display: none;
+                      }
+              - type: custom:button-card
+                template: card_ulic_garage_door
+                entity: cover.garage_door
+                card_mod:
+                  style:
+                    .: |
+                      ha-icon {
+                        top: -6px;
+                      }
   - title: Media
   - title: Automations
     cards:
