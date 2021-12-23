@@ -1,0 +1,13 @@
+---
+ulm_language_variables:
+  variables:
+    ulm_on: "On"
+    ulm_off: "Off"
+    ulm_open: "Open"
+    ulm_closed: "Closed"
+    ulm_unavailable: "Unavailable"
+    ulm_standby: "Standby"
+    ulm_idle: "Idle"
+    ulm_currency: "$"
+    ulm_heat: "Heating"
+    ulm_cool: "Cooling"
