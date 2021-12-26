@@ -9,7 +9,6 @@ views:
               - type: picture-elements
                 style: |
                   ha-card {
-                    border-radius: 12px;
                     box-shadow: var(--box-shadow);
                     overflow: hidden;
                   }
@@ -86,7 +85,6 @@ views:
               - type: picture-elements
                 style: |
                   ha-card {
-                    border-radius: 12px;
                     box-shadow: var(--box-shadow);
                     overflow: hidden;
                   }
@@ -197,10 +195,6 @@ views:
                         --round-slider-bar-color: lightgray;
                       }
                     .: |
-                      ha-card {
-                        transition: border-radius 0s;
-                        border-radius: var(--border-radius);
-                      }
                       #modes {
                         display: none;
                       }
@@ -219,22 +213,8 @@ views:
         cards:
           - type: media-control
             entity: media_player.roku
-            card_mod:
-              style:
-                .: |
-                  ha-card {
-                    transition: border-radius 0s;
-                    border-radius: var(--border-radius);
-                  }
           - type: media-control
             entity: media_player.living_room_cc
-            card_mod:
-              style:
-                .: |
-                  ha-card {
-                    transition: border-radius 0s;
-                    border-radius: var(--border-radius);
-                  }
           - type: custom:button-card
             name: Roku VPN
             tap_action:
@@ -257,13 +237,6 @@ views:
                 color: "#FBC02D"
               - value: stopping
                 color: "#FBC02D"
-            card_mod:
-              style:
-                .: |
-                  ha-card {
-                    transition: border-radius 0s;
-                    border-radius: var(--border-radius);
-                  }
   - title: Automations
     cards:
       - type: vertical-stack
