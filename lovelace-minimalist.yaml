@@ -6,158 +6,23 @@ views:
         cards:
           - type: horizontal-stack
             cards:
-              - type: picture-elements
-                style: |
-                  ha-card {
-                    box-shadow: var(--box-shadow);
-                    overflow: hidden;
-                  }
-                image: /local/images/person/Jan.jpeg
-                elements:
-                  - type: image
-                    entity: person.jan
-                    image: /local/images/person/Jan.jpeg
-                    style:
-                      top: 50%
-                      left: 50%
-                      width: 100%
-                      height: 100%
-                  - type: state-label
-                    entity: person.jan
-                    style:
-                      bottom: 0
-                      left: 0
-                      background: rgba(0, 0, 0, 0.3)
-                      width: 100%
-                      text-align: left
-                      font-family: var(--font-family)
-                      line-height: 15px
-                      transform: initial
-                      color: white
-                  - type: state-label
-                    entity: sensor.jan_pixel3_battery_level
-                    style:
-                      top: 0
-                      left: 0
-                      transform: initial
-                      padding: 0px 28px
-                      line-height: 32px
-                      color: white
-                  - type: icon
-                    icon: mdi:cellphone
-                    style:
-                      top: 0
-                      left: 0
-                      line-height: 32px
-                      padding: 7px 7px
-                      font-size: 11px
-                      transform: scale(0.8)
-                      color: white
-                  - type: conditional
-                    conditions:
-                      - state_not: home
-                        entity: person.jan
-                    elements:
-                      - type: state-label
-                        entity: sensor.jan_to_home
-                        style:
-                          top: 0
-                          left: 0
-                          pointer-events: none
-                          transform: initial
-                          font-size: 12px
-                          font-family: var(--font-family)
-                          color: white
-                          line-height: 32px
-                          padding: 28px 28px
-                      - type: icon
-                        icon: mdi:home
-                        style:
-                          top: 0
-                          left: 0
-                          pointer-events: none
-                          transform: scale(0.8)
-                          color: white
-                          line-height: 32px
-                          padding: 35px 7px
-                          font-size: 11px
-                          font-family: var(--font-family)
-              - type: picture-elements
-                style: |
-                  ha-card {
-                    box-shadow: var(--box-shadow);
-                    overflow: hidden;
-                  }
-                image: /local/images/person/Josh.jpeg
-                elements:
-                  - type: image
-                    entity: person.josh
-                    image: /local/images/person/Josh.jpeg
-                    style:
-                      top: 50%
-                      left: 50%
-                      width: 100%
-                      height: 100%
-                  - type: state-label
-                    entity: person.josh
-                    style:
-                      bottom: 0
-                      left: 0
-                      background: rgba(0, 0, 0, 0.3)
-                      width: 100%
-                      text-align: right
-                      font-family: var(--font-family)
-                      line-height: 15px
-                      transform: initial
-                      color: white
-                  - type: state-label
-                    entity: sensor.pixel_6_battery_level
-                    style:
-                      top: 0
-                      right: 0
-                      transform: initial
-                      padding: 0px 28px
-                      line-height: 32px
-                      color: white
-                  - type: icon
-                    icon: mdi:cellphone
-                    style:
-                      top: 0
-                      right: 0
-                      line-height: 32px
-                      padding: 7px 7px
-                      font-size: 11px
-                      transform: scale(0.8)
-                      color: white
-                  - type: conditional
-                    conditions:
-                      - state_not: home
-                        entity: person.josh
-                    elements:
-                      - type: state-label
-                        entity: sensor.josh_to_home
-                        style:
-                          top: 0
-                          right: 0
-                          pointer-events: none
-                          transform: initial
-                          font-size: 12px
-                          font-family: var(--font-family)
-                          color: white
-                          line-height: 32px
-                          padding: 28px 28px
-                      - type: icon
-                        icon: mdi:home
-                        style:
-                          top: 0
-                          right: 0
-                          pointer-events: none
-                          transform: scale(0.8)
-                          color: white
-                          line-height: 32px
-                          padding: 35px 7px
-                          font-size: 11px
-                          font-family: var(--font-family)
+              - type: custom:button-card
+                template: card_ulic_person
+                variables:
+                  image: /local/images/person/Jan.jpeg
+                  entity_person: person.jan
+                  entity_battery: sensor.jan_pixel3_battery_level
+                  entity_charging: binary_sensor.jan_pixel3_is_charging
+                  entity_time_to_home: sensor.jan_to_home
+              - type: custom:button-card
+                template: card_ulic_person
+                variables:
+                  image: /local/images/person/Josh.jpeg
+                  entity_battery: sensor.pixel_6_battery_level
+                  entity_charging: binary_sensor.pixel_6_is_charging
+                  entity_person: person.josh
+                  entity_time_to_home: sensor.josh_to_home
+                  alignment: right
           - type: horizontal-stack
             cards:
               - type: "custom:button-card"
