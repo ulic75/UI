@@ -1,0 +1,61 @@
+card_ulic_vpn:
+  type: custom:button-card
+  template: icon_info_bg
+  icon: mdi:shield-lock-outline
+  color: "var(--google-grey)"
+  show_label: false
+  show_state: true
+  tap_action:
+    action: call-service
+    service: mqtt.publish
+    service_data:
+      topic: homeassistant/button/roku_vpn/click
+  state:
+    - value: "stopped"
+      styles:
+        icon:
+          - color: "rgba(var(--color-red),1)"
+        label:
+          - color: "rgba(var(--color-red-text),1)"
+        name:
+          - color: "rgba(var(--color-red-text),1)"
+        state:
+          - color: "rgba(var(--color-red-text),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-red), 0.2)"
+        card:
+          - background-color: "rgba(var(--color-background-red), var(--opacity-bg))"
+    - value: "running"
+      styles:
+        icon:
+          - color: "rgba(var(--color-green),1)"
+        label:
+          - color: "rgba(var(--color-green-text),1)"
+        name:
+          - color: "rgba(var(--color-green-text),1)"
+        state:
+          - color: "rgba(var(--color-green-text),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-green), 0.2)"
+        card:
+          - background-color: "rgba(var(--color-background-green), var(--opacity-bg))"
+    - operator: "template"
+      value: '[[[ if (entity.state == "stopping" || entity.state == "starting") return true; ]]]'
+      styles:
+        icon:
+          - color: "rgba(var(--color-yellow),1)"
+        label:
+          - color: "rgba(var(--color-yellow-text),1)"
+        name:
+          - color: "rgba(var(--color-yellow-text),1)"
+        state:
+          - color: "rgba(var(--color-yellow-text),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-yellow), 0.2)"
+        card:
+          - background-color: "rgba(var(--color-background-yellow), var(--opacity-bg))"
+  styles:
+    grid:
+      - grid-template-areas: "'i n' 'i s'"
+    state:
+      - text-transform: capitalize

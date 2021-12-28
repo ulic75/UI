@@ -81,27 +81,8 @@ views:
           - type: media-control
             entity: media_player.living_room_cc
           - type: custom:button-card
-            name: Roku VPN
-            tap_action:
-              action: call-service
-              service: mqtt.publish
-              service_data:
-                topic: homeassistant/button/roku_vpn/click
+            template: card_ulic_vpn
             entity: input_select.roku_vpn_state
-            icon: mdi:shield-lock-outline
-            show_state: true
-            styles:
-              state:
-                - text-transform: capitalize
-            state:
-              - value: running
-                color: "#4CAF50"
-              - value: stopped
-                color: "#F44336"
-              - value: starting
-                color: "#FBC02D"
-              - value: stopping
-                color: "#FBC02D"
   - title: Automations
     cards:
       - type: vertical-stack
