@@ -2,7 +2,11 @@ card_ulic_person:
   variables:
     alignment: left
   aspect_ratio: 1/1
-  label: "[[[ return states[variables.entity_person].state ]]]"
+  label: >
+    [[[
+      if (states[variables.entity_person].state == "not_home") return 'Away';
+      return states[variables.entity_person].state;
+    ]]]
   show_label: true
   styles:
     card:
@@ -60,7 +64,7 @@ card_ulic_person:
           variables:
             alignment: "[[[ return variables.alignment ]]]"
           icon: mdi:home
-          label: "[[[ return states[variables.entity_time_to_home].state ]]]"
+          label: "[[[ return `${states[variables.entity_time_to_home].state}m` ]]]"
           entity: "[[[ return variables.entity_person ]]]"
   state:
     - operator: "template"
