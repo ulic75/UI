@@ -2,7 +2,7 @@
 minimalist-desktop:
   # Journal
   state-icon-color: "rgb(var(--color-theme))"
-  border-radius: "20px"
+  border-radius: "15px"
   error-color: "var(--google-red)"
   warning-color: "var(--google-yellow)"
   success-color: "var(--google-green)"
@@ -23,7 +23,7 @@ minimalist-desktop:
       # text
       primary-text-color: "#212121"
       # main interface colors
-      primary-color: "#434343"
+      primary-color: "#89B3F8"
       google-red: "#F54436"
       google-green: "#01C852"
       google-yellow: "#FF9101"
