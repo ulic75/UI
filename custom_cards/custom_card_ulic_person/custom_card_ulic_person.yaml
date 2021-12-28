@@ -51,7 +51,7 @@ card_ulic_person:
             if (states[variables.entity_charging].state == 'on') return 'mdi:cellphone-charging';
             return 'mdi:cellphone';
           ]]]
-        label: "[[[ return `${states[variables.entity_battery].state} %` ]]]"
+        label: "[[[ return `${states[variables.entity_battery].state}%` ]]]"
         entity: "[[[ return variables.entity_battery ]]]"
     time_to_home:
       card:
