@@ -26,6 +26,7 @@ card_ulic_person:
       - box-sizing: border-box
       - color: white
       - font-family: var(--font-family)
+      - font-size: 14px
       - line-height: 15px
       - padding: "8px 16px"
       - place-self: end
@@ -98,6 +99,7 @@ card_ulic_person_detail_row:
     label:
       - padding-right: 8px
       - padding-left: 8px
+      - font-size: 14px
   state:
     - operator: template
       value: '[[[ return variables.alignment == "right" ]]]'
