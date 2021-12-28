@@ -1,0 +1,25 @@
+button_card_templates: !include_dir_merge_named minimalist-templates/
+views:
+  - title: Home
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: card_ulic_person
+                variables:
+                  image: /local/images/person/Jan.jpeg
+                  entity_person: person.jan
+                  entity_battery: sensor.jan_pixel3_battery_level
+                  entity_charging: binary_sensor.jan_pixel3_is_charging
+                  entity_time_to_home: sensor.jan_to_home
+              - type: custom:button-card
+                template: card_ulic_person
+                variables:
+                  image: /local/images/person/Josh.jpeg
+                  entity_battery: sensor.pixel_6_battery_level
+                  entity_charging: binary_sensor.pixel_6_is_charging
+                  entity_person: person.josh
+                  entity_time_to_home: sensor.josh_to_home
+                  alignment: right
