@@ -1,0 +1,102 @@
+card_ulic_person:
+  variables:
+    alignment: left
+  aspect_ratio: 1/1
+  label: "[[[ return states[variables.entity_person].state ]]]"
+  show_label: true
+  styles:
+    card:
+      - padding: 0
+      - background-image: "[[[ return `url(${variables.image})` ]]]"
+      - background-size: contain
+    custom_fields:
+      battery_charge:
+        - place-self: start
+      time_to_home:
+        - place-self: start
+    grid:
+      - grid-template-areas: "'battery_charge' 'time_to_home' 'l'"
+      - grid-template-rows: min-content
+    label:
+      - background: rgba(0, 0, 0, 0.4)
+      - box-sizing: border-box
+      - color: white
+      - font-family: var(--font-family)
+      - line-height: 15px
+      - padding: "8px 16px"
+      - place-self: end
+      - text-align: "[[[ return variables.alignment ]]]"
+      - text-transform: capitalize
+      - transform: initial
+      - width: 100%
+  tap_action:
+    size: 20px
+    action: "more-info"
+    entity: "[[[ return variables.entity_person ]]]"
+  triggers_update: "all"
+  custom_fields:
+    battery_charge:
+      card:
+        type: custom:button-card
+        template: "card_ulic_person_detail_row"
+        variables:
+          alignment: "[[[ return variables.alignment ]]]"
+        icon: >
+          [[[
+            if (states[variables.entity_charging].state == 'on') return 'mdi:cellphone-charging';
+            return 'mdi:cellphone';
+          ]]]
+        label: "[[[ return `${states[variables.entity_battery].state} %` ]]]"
+        entity: "[[[ return variables.entity_battery ]]]"
+    time_to_home:
+      card:
+        type: conditional
+        conditions:
+          - entity: "[[[ return variables.entity_person ]]]"
+            state_not: "home"
+        card:
+          type: custom:button-card
+          template: "card_ulic_person_detail_row"
+          variables:
+            alignment: "[[[ return variables.alignment ]]]"
+          icon: mdi:home
+          label: "[[[ return states[variables.entity_time_to_home].state ]]]"
+          entity: "[[[ return variables.entity_person ]]]"
+  state:
+    - operator: "template"
+      value: '[[[ return variables.alignment == "right" ]]]'
+      styles:
+        custom_fields:
+          battery_charge:
+            - place-self: "start end"
+          time_to_home:
+            - place-self: "start end"
+
+card_ulic_person_detail_row:
+  show_label: true
+  show_name: false
+  size: 20px
+  styles:
+    card:
+      - color: white
+      - background: rgba(0,0,0,0)
+      - border-radius: 0
+      - box-shadow: none
+      - box-sizing: border-box
+      - padding: 8px 12px 0
+      - --mdc-ripple-press-opacity: 0
+    grid:
+      - grid-template-areas: "'i l'"
+      - grid-template-columns: min-content auto
+      - grid-template-rows: auto
+    icon:
+      - color: white
+    label:
+      - padding-right: 8px
+      - padding-left: 8px
+  state:
+    - operator: template
+      value: '[[[ return variables.alignment == "right" ]]]'
+      styles:
+        grid:
+          - grid-template-areas: "'l i'"
