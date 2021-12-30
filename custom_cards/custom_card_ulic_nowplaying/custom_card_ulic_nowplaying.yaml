@@ -45,6 +45,7 @@ card_ulic_nowplaying_with_controls:
   custom_fields:
     media_player:
       card:
-        hide:
-          controls: false
-          volume: false
+        card:
+          hide:
+            controls: false
+            volume: false
