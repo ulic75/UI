@@ -1,7 +1,11 @@
 card_ulic_nowplaying:
+  variables:
+    fallback: "[[[ return entity.entity_id ]]]"
   show_name: false
   show_icon: false
-  triggers_update: "[[[ return entity.entity_id ]]]"
+  triggers_update:
+    - "[[[ return entity.entity_id ]]]"
+    - "[[[ return variables.fallback ]]]"
   styles:
     card:
       - padding: 0
@@ -23,11 +27,19 @@ card_ulic_nowplaying:
       card:
         type: conditional
         conditions:
-          - entity: "[[[ return entity.entity_id ]]]"
+          - entity: >
+              [[[
+                if (states[entity.entity_id].state != "playing") return variables.fallback;
+                return entity.entity_id;
+              ]]]
             state: playing
         card:
           type: custom:mini-media-player
-          entity: "[[[ return entity.entity_id ]]]"
+          entity: >
+            [[[
+              if (states[entity.entity_id].state != "playing") return variables.fallback;
+              return entity.entity_id;
+            ]]]
           artwork: material
           hide:
             controls: true
