@@ -1,6 +1,7 @@
 card_ulic_nowplaying:
   show_name: false
   show_icon: false
+  triggers_update: "[[[ return entity.entity_id ]]]"
   styles:
     card:
       - padding: 0
