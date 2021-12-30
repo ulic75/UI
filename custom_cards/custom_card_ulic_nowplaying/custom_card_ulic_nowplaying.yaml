@@ -1,0 +1,96 @@
+card_ulic_nowplaying_header:
+  variables:
+    entities:
+      # Plex - Personal
+      - media_player.plex_home_roku
+      - media_player.plex_josh_eriadu_chrome
+      - media_player.plex_josh_pixel_6
+      - media_player.plexamp_eriadu
+      - media_player.plexamp_josh_pixel_6
+      # Plex - Friends & Family
+      - media_player.plex_parents_roku_living_room
+      # Devices
+      - media_player.living_room_cc
+      - media_player.nesthub1d20
+      - media_player.roku
+      # Apps
+      - media_player.spotify_ulic75
+  triggers_update:
+    # Plex - Personal
+    - media_player.plex_home_roku
+    - media_player.plex_josh_eriadu_chrome
+    - media_player.plex_josh_pixel_6
+    - media_player.plexamp_eriadu
+    - media_player.plexamp_josh_pixel_6
+    # Plex - Friends & Family
+    - media_player.plex_parents_roku_living_room
+    # Devices
+    - media_player.living_room_cc
+    - media_player.nesthub1d20
+    - media_player.roku
+    # Apps
+    - media_player.spotify_ulic75
+  name: Now Playing
+  state:
+    - operator: "template"
+      value: |
+        [[[
+          for (let i = 0; i < variables.entities.length; i++) {
+            if (states[variables.entities[i]].state == "playing") return false;
+          }
+          return true;
+        ]]]
+      styles:
+        card:
+          - display: none
+
+card_ulic_nowplaying:
+  show_name: false
+  show_icon: false
+  styles:
+    card:
+      - padding: 0
+    grid:
+      - grid-template-areas: "'media_player'"
+      - grid-template-columns: auto
+      - grid-template-rows: auto
+      - text-align: left
+  card_mod:
+    style:
+      .: |
+        {% if states(config.entity) != 'playing' %}
+        :host {
+          --vertical-stack-card-margin: 0;
+        }
+        {% endif %}
+  custom_fields:
+    media_player:
+      card:
+        type: conditional
+        conditions:
+          - entity: "[[[ return entity.entity_id ]]]"
+            state: playing
+        card:
+          type: custom:mini-media-player
+          entity: "[[[ return entity.entity_id ]]]"
+          artwork: material
+          hide:
+            controls: true
+            volume: true
+            power: true
+            runtime: false
+  state:
+    - operator: template
+      value: "[[[ states[entity.entity_id].state != 'playing' ]]]"
+      styles:
+        card:
+          - display: none
+
+card_ulic_nowplaying_with_controls:
+  template: card_ulic_nowplaying
+  custom_fields:
+    media_player:
+      card:
+        hide:
+          controls: false
+          volume: false
