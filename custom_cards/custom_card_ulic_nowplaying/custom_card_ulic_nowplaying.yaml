@@ -50,3 +50,4 @@ card_ulic_nowplaying_with_controls:
           hide:
             controls: false
             volume: false
+            mute: true
