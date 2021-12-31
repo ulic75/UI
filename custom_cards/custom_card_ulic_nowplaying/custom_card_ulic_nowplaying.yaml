@@ -71,3 +71,11 @@ nowplaying_no_volume:
         card:
           hide:
             volume: true
+
+nowplaying_no_progress:
+  custom_fields:
+    media_player:
+      card:
+        card:
+          hide:
+            progress: true
