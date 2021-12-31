@@ -76,10 +76,57 @@ views:
     cards:
       - type: vertical-stack
         cards:
-          - type: media-control
-            entity: media_player.roku
-          - type: media-control
+          - type: conditional
+            conditions:
+              - entity: sensor.active_media_players
+                state_not: "0"
+            card:
+              type: custom:button-card
+              template: card_title
+              name: Now Playing
+          # Plex - Personal
+          - type: custom:button-card
+            template:
+              - card_ulic_nowplaying_with_controls
+              - nowplaying_no_volume
+            variables:
+              fallback: media_player.roku
+            entity: media_player.plex_home_roku
+          - type: custom:button-card
+            template: card_ulic_nowplaying_with_controls
+            entity: media_player.plex_josh_eriadu_chrome
+          - type: custom:button-card
+            template: card_ulic_nowplaying_with_controls
+            entity: media_player.plex_josh_pixel_6
+          - type: custom:button-card
+            template:
+              - card_ulic_nowplaying_with_controls
+              - nowplaying_no_volume
+            entity: media_player.plexamp_eriadu
+          - type: custom:button-card
+            template: card_ulic_nowplaying_with_controls
+            entity: media_player.plexamp_josh_pixel_6
+          # Plex - Friends & Family
+          - type: custom:button-card
+            template: card_ulic_nowplaying
+            entity: media_player.plex_parents_roku_living_room
+          # Devices
+          - type: custom:button-card
+            template: card_ulic_nowplaying_with_controls
             entity: media_player.living_room_cc
+          - type: custom:button-card
+            template: card_ulic_nowplaying_with_controls
+            entity: media_player.nesthub1d20
+          # Apps
+          - type: custom:button-card
+            template:
+              - card_ulic_nowplaying
+              - nowplaying_no_progress
+            entity: media_player.spotify_ulic75
+
+          - type: custom:button-card
+            template: card_title
+            name: Media VPNs
           - type: custom:button-card
             template: card_ulic_vpn
             entity: input_select.roku_vpn_state
