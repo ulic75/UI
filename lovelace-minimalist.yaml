@@ -109,7 +109,19 @@ views:
           # Plex - Friends & Family
           - type: custom:button-card
             template: card_ulic_nowplaying
-            entity: media_player.plex_parents_roku_living_room
+            entity: media_player.plex_parents_livingroom_roku
+          - type: custom:button-card
+            template: card_ulic_nowplaying
+            entity: media_player.plex_chaosascends_roku_3
+          - type: custom:button-card
+            template: card_ulic_nowplaying
+            entity: media_player.plex_mickelsons_downstairs_chromecast
+          - type: custom:button-card
+            template: card_ulic_nowplaying
+            entity: media_player.plex_wells_vizio_tv
+          - type: custom:button-card
+            template: card_ulic_nowplaying
+            entity: media_player.plex_carpenters_android_tv
           # Devices
           - type: custom:button-card
             template: card_ulic_nowplaying_with_controls
