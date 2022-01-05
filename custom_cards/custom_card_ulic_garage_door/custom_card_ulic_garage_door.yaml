@@ -9,17 +9,18 @@ card_ulic_garage_door:
   state:
     - value: "closed"
       styles:
+        card:
+          - background-color: "rgba(var(--color-background-green),var(--opacity-bg))"
         icon:
-          - color: var(--google-green)
-    - value: "open"
-      styles:
-        icon:
-          - color: var(--google-red)
+          - color: "rgba(var(--color-green),1)"
+        img_cell:
+          - background-color: "rgba(var(--color-green), 0.2)"
   styles:
     card:
       - height: 100%
+      - background-color: "rgba(var(--color-background-red),var(--opacity-bg))"
     icon:
-      - color: "rgba(var(--color-theme),1)"
+      - color: "rgba(var(--color-red),1)"
       - height: "[[[return variables.icon_size]]]"
       - width: "[[[return variables.icon_size]]]"
     name:
@@ -30,6 +31,7 @@ card_ulic_garage_door:
       - justify-self: center
       - margin-left: 0
     img_cell:
+      - background-color: "rgba(var(--color-red), 0.2)"
       - height: "[[[return variables.icon_size]]]"
       - width: "[[[return variables.icon_size]]]"
     grid:
