@@ -14,14 +14,11 @@ card_ulic_nowplaying:
       - grid-template-columns: auto
       - grid-template-rows: auto
       - text-align: left
-  card_mod:
-    style:
-      .: |
-        {% if states(config.entity) != 'playing' %}
-        :host {
-          --vertical-stack-card-margin: 0;
-        }
-        {% endif %}
+  extra_styles: >
+    [[[
+      if (states[entity.entity_id].state != "playing")
+        return ":host { --vertical-stack-card-margin: 0; }"
+    ]]]
   custom_fields:
     media_player:
       card:
