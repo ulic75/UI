@@ -20,18 +20,18 @@ card_ulic_garage_door:
       - height: 100%
     icon:
       - color: "rgba(var(--color-theme),1)"
-      - width: "[[[return variables.icon_size]]]"
       - height: "[[[return variables.icon_size]]]"
+      - width: "[[[return variables.icon_size]]]"
     name:
       - align-self: end
-      - justify-self: center
-      - font-weight: bold
-      - font-size: 14px
-      - margin-left: 0
       - filter: opacity(100%)
+      - font-size: 14px
+      - font-weight: bold
+      - justify-self: center
+      - margin-left: 0
     img_cell:
-      - width: "[[[return variables.icon_size]]]"
       - height: "[[[return variables.icon_size]]]"
+      - width: "[[[return variables.icon_size]]]"
     grid:
       - align-content: center
       - grid-template-areas: '"i" "n"'
