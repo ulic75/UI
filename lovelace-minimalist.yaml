@@ -43,7 +43,8 @@ views:
             cards:
               - type: "custom:button-card"
                 template: card_light
-                entity: light.christmas_tree
+                entity: group.christmas_lights
+                icon: ulic:christmas-tree
               - type: "custom:button-card"
                 template: card_ulic_wled
                 entity: light.wled_kitchen1
