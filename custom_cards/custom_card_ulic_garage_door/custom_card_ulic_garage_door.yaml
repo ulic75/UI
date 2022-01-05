@@ -6,6 +6,8 @@ card_ulic_garage_door:
     icon_size: 100px
   tap_action:
     action: toggle
+  hold_action:
+    action: more-info
   state:
     - value: "closed"
       styles:
