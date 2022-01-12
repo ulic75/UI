@@ -53,6 +53,21 @@ card_ulic_person:
           ]]]
         label: "[[[ return `${states[variables.entity_battery].state}%` ]]]"
         entity: "[[[ return variables.entity_battery ]]]"
+        state:
+          - operator: <=
+            value: 20
+            styles:
+              icon:
+                - color: "rgba(var(--color-yellow-text), 1)"
+              label:
+                - color: "rgba(var(--color-yellow-text), 1)"
+          - operator: <=
+            value: 10
+            styles:
+              icon:
+                - color: "#FF3737"
+              label:
+                - color: "#FF3737"
     time_to_home:
       card:
         type: conditional
