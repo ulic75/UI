@@ -1,7 +1,4 @@
 card_ulic_garage_door:
-  template:
-    - icon_info_bg
-    - ulm_language_variables
   variables:
     icon_size: 100
   tap_action:
@@ -9,6 +6,8 @@ card_ulic_garage_door:
   hold_action:
     action: more-info
   icon: mdi:garage-open-variant
+  aspect_ratio: 1/1
+  size: 100%
   state:
     - value: "closed"
       icon: mdi:garage-variant
@@ -21,27 +20,19 @@ card_ulic_garage_door:
           - background-color: "rgba(var(--color-green), 0.2)"
   styles:
     card:
-      - height: 100%
       - background-color: "rgba(var(--color-background-red),var(--opacity-bg))"
+      - padding: 12px
     icon:
       - color: "rgba(var(--color-red),1)"
-      - height: "[[[return `${variables.icon_size - 20}px`]]]"
-      - width: "[[[return `${variables.icon_size - 20}px`]]]"
-      - top: 5px
-    name:
-      - align-self: end
-      - filter: opacity(100%)
-      - font-size: 14px
-      - font-weight: bold
-      - justify-self: center
-      - margin-left: 0
-      - margin-top: 10px
+      - width: 80%
     img_cell:
       - background-color: "rgba(var(--color-red), 0.2)"
-      - height: "[[[return `${variables.icon_size}px`]]]"
-      - width: "[[[return `${variables.icon_size}px`]]]"
-    grid:
-      - align-content: center
-      - grid-template-areas: '"i" "n"'
-      - grid-template-columns: auto
-      - grid-template-rows: min-content min-content
+      - border-radius: "50%"
+      - height: 0
+      - padding-top: 75%
+      - place-self: "center"
+      - width: 75%
+    name:
+      - font-size: 14px
+      - font-weight: bold
+      - padding-bottom: 5px
